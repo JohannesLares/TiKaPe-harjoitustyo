@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fi">
+    <head>
+        <meta charset="utf-8">
+        <title>TiKaPe harjoitustyö</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Smoothiebaari</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li> <a href="/">Koti</a> </li>
+                    <li> <a href="/aineet">Raaka-aineet</a> </li>
+                    <li> <a href="/annokset">Annokset</a> </li>
+                    <li class="active"> <a href="/lisaaAnnos">Lisää annos</a> </li>
+                </ul>
+            </div>
+        </nav>
+        <div> <h1>Uusi annos</h1> </div>
+        <div class="col-md-offset-1">
+            <form action="uusiAnnos" method="post">
+                <input type="text" name="nimi" placeholder="nimi"><br>
+                <table class="table table-striped col-md-2">
+                    <tr>
+                        <th>Aine:</th>
+                        <th>Valitse:</th>
+                        <th>Järjestys:</th>
+                        <th>Määrä:</th>
+                        <th>Ohje:</th>
+                    </tr>
+                    <tr th:each="aine: ${aine}">
+                        <td th:text=${aine.nimi}>Aine</td><td><input type="checkbox" th:name="aine + ${aine.id}" th:value="${aine.id}"></td><td><input type="number" th:name="jarjestys + ${aine.id}"></td><td><input type="text" th:name="maara + ${aine.id}"></td><td><input type="text" th:name="ohje + ${aine.id}"></td>
+                    </tr>
+                </table>
+                <input type="submit" name="" value="Add!">
+            </form>
+        </div>
+    </body>
+</html>
