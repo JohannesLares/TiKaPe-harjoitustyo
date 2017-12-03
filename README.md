@@ -1,3 +1,5 @@
+Bootstrap:n lisenssi:
+
 The MIT License (MIT)
 
 Copyright (c) 2011-2016 Twitter, Inc.
